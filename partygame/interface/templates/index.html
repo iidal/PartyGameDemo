@@ -1,0 +1,73 @@
+<html>
+  <head>
+    {% load static %}
+    
+    <title>Party game first steps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+    rel="stylesheet"
+    href="{% static 'interface/main.css'%}"
+  />
+  
+ 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a href="#home" class="active">Home</a>
+      <a href="#games">Games</a>
+      <a href="#contact">Contact</a>
+      <a href="#about">About</a>
+      <a href="javascript:void(0);" class="icon" onclick="ToggleNavBar()">
+        <i class="fa fa-bars"></i>
+      </a>
+    </div>
+
+    <!--prompt-->
+    <div class="taskarea">
+      <div class="promptarea">
+        <p id ="promptHere">
+          InsertContrary to popular belief, Lorem Ipsum is not simply random
+          teey College in Virginia, looked up one of the more obscure Latin
+          words, consecteture task her
+        </p>
+      </div>
+      <button onclick="NextPrompt()">NEXT</button>
+      <button onclick="SetPlayerAmount(3)">player test</button>
+    </div>
+    <div class ="playerarea">
+      <div class = playercontainer>
+        <div id = "playerblock">
+        <img src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg"></img>
+        <p>player</p>
+        </div>
+        <div id = "playerblock">
+        <img src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg"></img>
+        <p>player</p>
+        </div>
+        <div id = "playerblock">
+          <img src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg"></img>
+          <p>player</p>
+      </div>
+
+
+
+
+    </div><br><br><br><br><br><br><br><br>
+   <!-- <iframe src="https://open.spotify.com/embed/playlist/5jhyOdnOaSqgfKV5ndLNbQ" width="550" height="250" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+  -->
+  </div>
+
+
+
+  <script src="{% static 'interface/mainCode.js'%}"></script>
+  </body>
+
+
+</html>
