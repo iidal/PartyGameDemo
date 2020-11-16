@@ -45,16 +45,21 @@ p {
     show link to open dropdown menu (.icon)*/
   display: none;
 }
-.taskarea {
-  text-align: center;
-}
-.taskarea button {
+button {
   font-size: 40px;
   background-color: #333;
   color: #ddd;
   border-width: 0px;
   width: 150px;
   height: 60px;
+}
+
+.taskarea {
+  text-align: center;
+  display: block;
+}
+.taskarea-hidden {
+  display: none;
 }
 
 .promptarea {
@@ -90,6 +95,21 @@ p {
 }
 #playerblock img {
   width: 40px;
+}
+.addplayers {
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  margin-top: 50px;
+}
+.addplayers.hidden {
+  display: none;
+}
+.playerinput {
+  font-size: 50px;
+  width: 300px;
+  height: 100px;
+  border: 0px;
 }
 
 @media screen and (max-width: 600px) {

@@ -1,4 +1,54 @@
-//VARIABLES
+
+//SETTING PLAYERS-----------------------------------------------------------------------------------------------------------------
+var playerAmount = 0;
+var players = [];
+function AddPlayer() {
+
+  playerAmount++;
+  var input = document.getElementById("PlayerName");
+  var p = input.value;
+  players.push(p);
+  input.value = "";
+  document.getElementById("addedplayers").innerHTML += (p + ", ");
+
+  players.forEach(element => console.log(element));
+
+}
+
+function StartGame() { // (later) takes amount of players from input and adjusts the column amount accordingly
+  let root = document.documentElement;
+  let playerHolder = document.getElementById("playercontainer"); //div that holds the player icons
+
+  //setting the player amount for css so the grid will be set just right
+  //therese probably a better way to do this but oh well
+  root.addEventListener("click", e => {
+    root.style.setProperty('--playerColumnCount', playerAmount);
+  });
+
+  players.forEach(element => {
+    let newBlock = document.createElement("p");
+    newBlock.setAttribute("id", "playerblock")
+    let playertag = document.createTextNode(element);
+
+    newBlock.appendChild(playertag);
+    //document.body.insertBefore(newBlock, playerHolder);
+    playerHolder.appendChild(newBlock);
+  });
+
+  //HIDE ADD PLAYERS DIV
+  var x = document.getElementsByClassName("addplayers");
+  console.log(x);
+  x[0].className += " hidden";
+
+  //SHOW PROMPT DIV
+  var x = document.getElementsByClassName("taskarea-hidden");
+  console.log(x);
+  if (x != null) {
+    x[0].className = "taskarea";
+  }
+}
+
+// PROMPT VARIABLES
 
 var promptArray = [];
 var parseObj; //parsed prompts
@@ -54,8 +104,8 @@ function ShufflePrompts() {
 }
 
 
-
 //NOT GAME RELATED--------------------------------------------------------------------------------------------------------------
+//toggle nav bar
 function ToggleNavBar() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -63,11 +113,4 @@ function ToggleNavBar() {
   } else {
     x.className = "topnav";
   }
-}
-function SetPlayerAmount(amount) { // (later) takes amount of players from input and adjusts the column amount accordingly
-  let root = document.documentElement;
-
-  root.addEventListener("click", e => {
-    root.style.setProperty('--playerColumnCount', amount);
-  });
 }

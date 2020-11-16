@@ -29,40 +29,48 @@
       </a>
     </div>
 
-    <!--prompt-->
-    <div class="taskarea">
+    <!-------------------------add players------------------------->
+
+    <div class="addplayers">
+      <input type="text" class = "playerinput" id="PlayerName" placeholder="player">
+      <div>
+      <button onclick="AddPlayer()">ADD</button>
+      <button onclick="StartGame()">START</button>
+      <p id="addedplayers"></p> <!--Show added players here-->
+      </div>
+
+    </div>
+
+    <!-------------------------prompt------------------------->
+    <div class="taskarea-hidden">
+      <p>please note I have not proofread these prompts, <br>let me know if there is anything weird/questionable/bs among them</p>
       <div class="promptarea">
         <p id ="promptHere">
-          InsertContrary to popular belief, Lorem Ipsum is not simply random
+          Contrary to popular belief, Lorem Ipsum is not simply random
           teey College in Virginia, looked up one of the more obscure Latin
-          words, consecteture task her
         </p>
       </div>
       <button onclick="NextPrompt()">NEXT</button>
-      <button onclick="SetPlayerAmount(3)">player test</button>
-    </div>
-    <div class ="playerarea">
-      <div class = playercontainer>
-        <div id = "playerblock">
+     <!-- <button onclick="SetPlayerAmount(3)">player test</button>-->
+      <br><br>
+     <div class ="playerarea">
+      <div class = playercontainer id ="playercontainer">
+        <!--<div id = "playerblock">
         <img src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg"></img>
         <p>player</p>
-        </div>
-        <div id = "playerblock">
-        <img src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg"></img>
-        <p>player</p>
-        </div>
-        <div id = "playerblock">
-          <img src="https://www.bsn.eu/wp-content/uploads/2016/12/user-icon-image-placeholder.jpg"></img>
-          <p>player</p>
+        </div>-->
       </div>
+    </div>
+
 
 
 
 
     </div><br><br><br><br><br><br><br><br>
-   <!-- <iframe src="https://open.spotify.com/embed/playlist/5jhyOdnOaSqgfKV5ndLNbQ" width="550" height="250" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-  -->
+    <div style="text-align: center;">
+   <iframe src="https://open.spotify.com/embed/playlist/5jhyOdnOaSqgfKV5ndLNbQ" width="550" height="250" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </div>
+</div>
 
 
 

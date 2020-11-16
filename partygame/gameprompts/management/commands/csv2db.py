@@ -13,10 +13,10 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         cprint(f'\nProcessing prompts', 'green', attrs=['reverse'])
 
-        num_lines = sum(1 for line in open('promptList_v1.csv'))
+        num_lines = sum(1 for line in open('Prompts1.csv'))
         
         with tqdm(total=num_lines) as pbar:
-            with open('promptList_v1.csv', encoding='utf-8') as csv_file:
+            with open('Prompts1.csv', encoding='utf-8') as csv_file:
                 csv_reader = csv.reader(csv_file, delimiter=";")
                 line_count = 0
 
