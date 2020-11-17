@@ -11,7 +11,7 @@ in a nutshell:
 Coming soon to a browser near you:
 - player icons
 - card deck (new app)
-- new prompts/tasks/questions (no more blindly copy pasting from the world wide web)
+- new prompts/tasks/questions (to replace the testing versions)
 - different modes? only never have i ever, would you rather, etc databases
 - users can suggest new prompts
   - users can vote new suggestions
