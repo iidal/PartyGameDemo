@@ -1,4 +1,5 @@
 
+
 //SETTING PLAYERS-----------------------------------------------------------------------------------------------------------------
 var playerAmount = 0;
 var players = [];
@@ -11,11 +12,9 @@ function AddPlayer() {
   input.value = "";
   document.getElementById("addedplayers").innerHTML += (p + ", ");
 
-  players.forEach(element => console.log(element));
-
 }
 
-function StartGame() { // (later) takes amount of players from input and adjusts the column amount accordingly
+function StartGame() { //takes amount of players from input and adjusts the column amount accordingly
   let root = document.documentElement;
   let playerHolder = document.getElementById("playercontainer"); //div that holds the player icons
 
@@ -37,12 +36,10 @@ function StartGame() { // (later) takes amount of players from input and adjusts
 
   //HIDE ADD PLAYERS DIV
   var x = document.getElementsByClassName("addplayers");
-  console.log(x);
   x[0].className += " hidden";
 
   //SHOW PROMPT DIV
-  var x = document.getElementsByClassName("taskarea-hidden");
-  console.log(x);
+  x = document.getElementsByClassName("taskarea-hidden");
   if (x != null) {
     x[0].className = "taskarea";
   }
@@ -52,7 +49,7 @@ function StartGame() { // (later) takes amount of players from input and adjusts
 
 var promptArray = [];
 var parseObj; //parsed prompts
-var promptIndex = 0; //index of current prompt
+var promptsLeft; //how many prompts are left
 
 // GET ALL THE PROMPTS-------------------------------------------------------------------------------------------------------
 
@@ -68,18 +65,15 @@ $(document).ready(function () {
       var stringObj = JSON.stringify(data);
       parseObj = JSON.parse(stringObj);
 
-      var i = 0;
-      while (i < parseObj.length) {
-        promptArray.push(i);
-        i++;
+      promptsLeft = 0;
+      while (promptsLeft < parseObj.length) {
+        promptsLeft++;
       }
 
       //shuffle
-
-      var promptItem = parseObj[promptIndex];
-
+      let ind = RandomIndex();
+      var promptItem = parseObj[ind];
       $("#promptHere").text(promptItem.prompt);
-
 
     },
   });
@@ -87,10 +81,11 @@ $(document).ready(function () {
 
 //CHANGE TO NEXT PROMPT-----------------------------------------------------------------------------------------------------
 function NextPrompt() {
-  promptIndex++;
-  if (promptIndex < parseObj.length) {
-    promptItem = parseObj[promptIndex];
-    $("#promptHere").text(promptItem.prompt);
+  let ind = RandomIndex();
+  // promptIndex++;
+  if (promptsLeft > 0) {
+    promptItem = parseObj[ind];
+    $("#promptHere").text(promptItem.prompt_id + " " + promptItem.prompt);
   }
   else {
     $("#promptHere").text("all prompts completed, thanks for playing");
@@ -98,9 +93,12 @@ function NextPrompt() {
   }
 }
 //SHUFFLE PROMPTS---------------------------------------------------------------------------------------------------------
-function ShufflePrompts() {
-
-
+function RandomIndex() {
+  var min = 0;
+  var max = promptsLeft;
+  var nextIndex = Math.floor(Math.random() * (max - min + 1) + min); //inclusive min and max
+  promptsLeft--;
+  return nextIndex;
 }
 
 
@@ -113,4 +111,8 @@ function ToggleNavBar() {
   } else {
     x.className = "topnav";
   }
+}
+//check if the user really wants to leave window
+function OnBeforeUnload() {
+  return "ahaa eli täytyy return jotain ok";
 }
