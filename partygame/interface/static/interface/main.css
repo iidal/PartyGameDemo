@@ -88,12 +88,16 @@ button {
 
   font-weight: bold;
 }
-#playerblock {
+.playerblock {
   height: 65px;
   width: 50px;
   text-align: center;
 }
-#playerblock img {
+.playerblock.active {
+  background-color: #333;
+  font-size: xx-large;
+}
+.playerblock img {
   width: 40px;
 }
 .addplayers {

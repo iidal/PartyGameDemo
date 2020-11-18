@@ -1,8 +1,9 @@
-
-
-//SETTING PLAYERS-----------------------------------------------------------------------------------------------------------------
+//PLAYERS VARIABLES
 var playerAmount = 0;
 var players = [];
+var currentPlayerId = 0;
+//SETTING PLAYERS-----------------------------------------------------------------------------------------------------------------
+
 function AddPlayer() {
 
   playerAmount++;
@@ -24,15 +25,23 @@ function StartGame() { //takes amount of players from input and adjusts the colu
     root.style.setProperty('--playerColumnCount', playerAmount);
   });
 
+  var i = 0; //id for playerblocks
   players.forEach(element => {
     let newBlock = document.createElement("p");
-    newBlock.setAttribute("id", "playerblock")
+    newBlock.setAttribute("id", "playerblock" + i);
+
+    //first player starts the game, make that div "active"
+    if (i == 0) { newBlock.setAttribute("class", "playerblock active"); }
+    else { newBlock.setAttribute("class", "playerblock"); }
+
     let playertag = document.createTextNode(element);
 
     newBlock.appendChild(playertag);
-    //document.body.insertBefore(newBlock, playerHolder);
     playerHolder.appendChild(newBlock);
+    i++;
   });
+
+
 
   //HIDE ADD PLAYERS DIV
   var x = document.getElementsByClassName("addplayers");
@@ -44,6 +53,36 @@ function StartGame() { //takes amount of players from input and adjusts the colu
     x[0].className = "taskarea";
   }
 }
+function ChangeCurrentPlayer() {
+
+}
+function SetCurrentPlayer() {
+  //unactivate previous player
+
+  var x = document.getElementById("playerblock" + currentPlayerId);
+  x.className = "playerblock";
+
+  if (currentPlayerId < players.length - 1) {
+    currentPlayerId++;
+  }
+  else {
+    currentPlayerId = 0;
+  }
+
+  x = document.getElementById("playerblock" + currentPlayerId);
+  x.className = "playerblock active";
+
+
+
+  //get element by id, change its class or id to active
+  //get element by id, change previous player block to inactive/normal
+
+  //add 1 to current player id or go back to 1st player, that value will be used next time 
+
+}
+//--------------------------------------------------------------------------------------
+//PROMPT STUFF START
+
 
 // PROMPT VARIABLES
 
@@ -85,12 +124,13 @@ function NextPrompt() {
   // promptIndex++;
   if (promptsLeft > 0) {
     promptItem = parseObj[ind];
-    $("#promptHere").text(promptItem.prompt_id + " " + promptItem.prompt);
+    $("#promptHere").text(promptItem.prompt);
   }
   else {
     $("#promptHere").text("all prompts completed, thanks for playing");
     // hide next button
   }
+  SetCurrentPlayer();
 }
 //SHUFFLE PROMPTS---------------------------------------------------------------------------------------------------------
 function RandomIndex() {

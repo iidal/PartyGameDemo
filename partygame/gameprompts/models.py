@@ -12,7 +12,6 @@ class Prompt(models.Model):
 
 
     def save(self, *args, **kwargs):
-        ''' On save, update timestamps '''
         return super(Prompt, self).save(*args, **kwargs)
 
     def __str__(self):
