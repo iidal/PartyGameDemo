@@ -1,6 +1,6 @@
 # PartyGameDemo
 
-<s>plagiarising</s> being inspired by Drunk Pirate and every other <s>drinking</s> party game
+Inspired by Drunk Pirate and every other <s>drinking</s> party game. (Main goal is to be a party game, not a drinking game)
 
 in a nutshell:
 - database(s) of party/icebreaker/etc questions that the players go through
@@ -22,3 +22,5 @@ Coming soon to a browser near you:
 
 
 #django, python, javascript, jquery, html, css, database,
+
+
