@@ -1,6 +1,9 @@
 # PartyGameDemo
 
-Inspired by Drunk Pirate and every other <s>drinking</s> party game. (Main goal is to be a party game, not a drinking game)
+## [The game is live, click here :sunglasses:](https://afternoon-fortress-51422.herokuapp.com/) 
+(Suggestions for a name are welcomed)
+
+Inspired by Drunk Pirate and every other party game. I will be updating this readme file as I go forward with the project
 
 in a nutshell:
 - database(s) of party/icebreaker/etc questions that the players go through
@@ -18,9 +21,26 @@ Coming soon to a browser near you:
 
 
 
+### Pickings from the project
+
+#####csv2db.py
+
+a custom django-admin command for creating a database from a csv file.
+
+#####admin site
+
+Using the admin interface provided by django, game prompts and questions can be managed on the browser
+
+#####Using Django REST framework
+
+serializers for listing the prompts as json in the browser (at /api). The prompts are accessed from there with jQuery/AJAX and used in the game
 
 
+### Bugs, things to fix/add/change
 
-#django, python, javascript, jquery, html, css, database,
+-the model for a prompt defines the prompt id as char instead of int, so the database entries cant be sorted by the id. This does not affect any of the functionalities of the project, it's just an inconvenience when viewing the prompts on the admin page.
+
+
+#django, python, javascript, jquery, html, css, database, REST framework, heroku
 
 
