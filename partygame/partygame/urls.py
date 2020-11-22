@@ -20,6 +20,6 @@ from interface.views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('gameprompts.urls')),
+    path('api', include('gameprompts.urls')),
     path('', index),
 ]
